@@ -17,7 +17,7 @@
 // Files:            none
 /////////////////////////////////////////////////////////////////////////////////
 #include <iostream>
-
+#include <string>
 using namespace std;
 
 int A[100]; //array size 100
