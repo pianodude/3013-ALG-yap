@@ -1,0 +1,9 @@
+####################################################
+	Assignment 4 - Resizing the stack
+	CMPS 3013
+	Joshua Yap
+
+	Max Stack Size: 10
+	End Stack Size: 10
+	Stack Resized: 0 times
+####################################################
