@@ -259,7 +259,7 @@ public:
 	 */
 	bool CheckResize(int& maxSize)
 	{
-		if (top == ((size / 2) - 1))    //if top is just 1
+		if ((top == ((size / 2) - 1))&&(size>=20))    //if top is just 1
 		{								//below half of current size
 			ContainerShrink();
 			return true;

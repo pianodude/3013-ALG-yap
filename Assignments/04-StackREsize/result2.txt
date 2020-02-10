@@ -3,7 +3,7 @@
 	CMPS 3013
 	Joshua Yap
 
-	Max Stack Size: 10
-	End Stack Size: 10
-	Stack Resized: 0 times
+	Max Stack Size: 40831
+	End Stack Size: 13
+	Stack Resized: 29 times
 ####################################################
