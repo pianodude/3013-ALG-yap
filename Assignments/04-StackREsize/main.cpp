@@ -1,4 +1,4 @@
-///////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
 //
 // Author:           Terry Griffin, Joshua Yap
 // Email:            terry.griffin@msutexas.edu, joshyap92@yahoo.com
@@ -8,7 +8,7 @@
 // Semester:         Spring 2020
 //
 // Description:
-//       Overview of a class implementing an array based stack
+//       Array based stack that can increase or half the size
 //
 /////////////////////////////////////////////////////////////////////////////////
 #include <iostream>
@@ -274,14 +274,14 @@ public:
 		}
 		else
 		{
-			return false;
+			return false;				//if no resize necessary
 		}
 	}
 	/**
 	 * Public int: getSize
 	 *
 	 * Description:
-	 *      class accessor 
+	 *      class accessor for size
 	 *      
 	 *
 	 * Params:
@@ -303,38 +303,38 @@ public:
 // MAIN DRIVER
 // Simple Array Based Stack Usage:
 int main() {
-	ArrayStack stack; //using default
+	ArrayStack stack;				//using default
 
 
 
 	ifstream infile;
 	ofstream outfile;
-	int maxSize=10; 
-	int resizeCount = 0;
+	int maxSize=10;					// if stack capacity increases
+	int resizeCount = 0;			// counter
 	
 	int entry;
 
-	infile.open("test.txt");      //change the files here
-	outfile.open("result.txt");
+	infile.open("nums.dat");        //change the files here
+	outfile.open("result2.txt");
 
 	//*while loop goes here*
-	while (!infile.eof())
+	while (!infile.eof())			//end loop at end of file
 	{
 		infile >> entry;
-		if (entry % 2 == 0)
+		if (entry % 2 == 0)			//if the number is even...
 		{
-			stack.Push(entry);
+			stack.Push(entry);		//...push it
 			if (stack.CheckResize(maxSize) == true)
 			{
-				resizeCount++;
+				resizeCount++;		//if it's full
 			}
 		}
 		else
 		{
-			stack.Pop();
+			stack.Pop();			//..if its odd, pop the stack
 			if (stack.CheckResize(maxSize) == true)
 			{
-				resizeCount++;
+				resizeCount++;		//if it's just half empty
 			}
 		}
 
@@ -352,7 +352,7 @@ int main() {
 	outfile << '\t' << "End Stack Size: " << stack.getSize() << endl;
 	outfile << '\t' << "Stack Resized: " << resizeCount << " times" << endl;
 	outfile << "####################################################" << endl;
-	infile.close();
+	infile.close();   //close  files
 	outfile.close();
 	return 0;
 }
