@@ -11,7 +11,7 @@
 //       uses json to find words based on a substring
 //
 // Usage:
-//       one char then searches 10 of the some substring
+//       type a string then it searches 10 of the same substring
 //
 // Files:            Dictionary.cpp
 //                   json.hpp
@@ -28,6 +28,8 @@
 #include "Timer.hpp"            // need to grab a copy from resources folder
 #include "Dictionary.cpp"
 #include <vector>
+#include <limits>
+
 using namespace std;
 
 /**
@@ -51,8 +53,11 @@ int main(){
     srand(9870);
     Dictionary D;
     Timer T;
+    vector<string> matchingwords;
     
-    JsonFacade J("dict_w_defs.json");   // create instance of json class
+    cout<<"Loading Json file ...\n"<<flush;
+    JsonFacade J("dict_small.json");   // create instance of json class
+    cout<<"Done loading \n"<<flush;
      
     double s = T.Seconds();
     long m = T.MilliSeconds();
@@ -62,44 +67,47 @@ int main(){
     int index = 0;                      // 
     string key;                         // key variable to access json object
 
+    cout<<"Getting Keys ...\n"<<flush;
     vector<string> keys = J.getKeys();
+    cout<<"Done ...\n"<<flush;
     
-    cout<<"hi";
+    
 //all words are in linked list
+    cout<<"Loading List ...\n"<<flush;
     for (int i=0;i<J.getSize();i++)         
     {    
         D.Add(J.getKey(i), J.getValue(J.getKey(i)));
     }
+    cout<<"Done Loading List ...\n"<<flush;
 
     string searchword= "";
     char k;
-    cout<<"enter word"<<endl;
+    cout<<"enter word: "<<endl;
 
-    while (k=getch() !='Z') //type capital Z when done
-    {
-        searchword+=k;      //adds the char
-        T.Start();
-        vector<string>matchingwords=D.Search(searchword);    //
-        T.End();
-        cout<<matchingwords.size()<<" words found in "<< s <<" seconds";
-
-        for (int i=0; i<10; i++)
-        {
-            cout <<matchingwords[i]<<" ";
-        }
-       
-        cout<<k<<endl;
-    }
-
-
-    
-    
     //D.Print();
 
-    //cout<<keys.size()<<endl;
-    //index = rand() % keys.size();
-    //key = J.getKey(index);
+    cin.ignore();
+    cin.sync();
 
-   // cout<<key<<" = "<<J.getValue(key)<<endl;
-   // cout<<"fun"<<" = "<<J.getValue("fun")<<endl;
+    // while (k=getch() !='Z') //type capital Z when done
+    // {                       //somehow not working
+        cin>>searchword;
+        //searchword += k;      //adds the char
+        T.Start();
+        matchingwords = D.Search(searchword);    
+        T.End();
+        cout<<matchingwords.size()<<" words found in "<< s <<" seconds"<<endl;;
+
+         for (int i=0; i<10; i++)
+         {
+             cout <<matchingwords[i]<<" ";
+         }
+       
+        
+    //}
+
+
+    
+    
+   return 0;
 }

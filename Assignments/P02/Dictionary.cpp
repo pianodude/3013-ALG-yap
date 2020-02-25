@@ -78,7 +78,7 @@ public:
  vector<string> Search(string searchword)
  {
       wordNode* traverse = Start;
-      vector<string>matchingwords;
+      vector<string> matchingwords;
       while(traverse->Next != NULL){
         // walks the list
         // check if traverse.getWord() starts with searchWord
