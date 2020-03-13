@@ -27,9 +27,9 @@ size 2n -> 40 seconds
 for (int I = 0; I < n; I++)
     for (int j = 1; j < n; j++)
         {some_statement;}
-        
-        n<sup>2</sup>-n times
+       
 ```
+n<sup>2</sup>-n times
 - 8B)
 ```cpp
 //B
@@ -37,8 +37,9 @@ for (int I = 0; I < n; I +=2)
     for (int j = 1; j < n; j++)
         {some_statement;}
         
-         n<sup>2</sup>/2 times
+         
 ```
+n<sup>2</sup>/2 times
 
 - 8C)
 ```cpp
@@ -47,8 +48,9 @@ for (int j = 1 ; j < n ; j *= 2)
     for (int I = 1; i<n; i++)
         {some_statement;} 
         
-        n log (n) times
+        
 ```
+n log (n) times
 
 At most, how many comparisons are required to search a sorted vector of 1023 elements using the binary
 search algorithm? log (1023) approx 10 comparisons
